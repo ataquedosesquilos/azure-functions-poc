@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<peci:Workers_Effective_Stack xmlns:peci="urn:com.workday/peci">
+    <peci:Summary>
+        <peci:Integration_Event>7c043dfadcef01d0814b69e3889a531d</peci:Integration_Event>
+        <peci:Integration_Sent_On>2018-07-27T03:46:18.841-07:00</peci:Integration_Sent_On>
+        <peci:Payroll_Company_ID>CUSTOM_ORGANIZATION-6-349</peci:Payroll_Company_ID>
+        <peci:Payroll_Company_Name>ZZAU</peci:Payroll_Company_Name>
+        <peci:Payroll_Company_Code>ZZAU</peci:Payroll_Company_Code>
+        <peci:Pay_Group_ID>PEX_AUS_AU</peci:Pay_Group_ID>
+        <peci:Pay_Group_Name>NGAHR Payroll Exchange AUS AU</peci:Pay_Group_Name>
+        <peci:Pay_Group_Country>AU</peci:Pay_Group_Country>
+        <peci:Pay_Group_Code>AU</peci:Pay_Group_Code>
+        <peci:Pay_Period_Start>2018-07-01-07:00</peci:Pay_Period_Start>
+        <peci:Pay_Period_End>2018-07-31-07:00</peci:Pay_Period_End>
+        <peci:Updated_From>2018-07-27T02:59:22.926-07:00</peci:Updated_From>
+        <peci:Updated_To>2018-07-27T03:46:18.841-07:00</peci:Updated_To>
+        <peci:Effective_From>2018-07-01-07:00</peci:Effective_From>
+        <peci:Effective_To>2018-07-31-07:00</peci:Effective_To>
+        <peci:Change_Detection>Include only changes entered since the last successful
+            run.</peci:Change_Detection>
+        <peci:First_Primary_Run_of_Pay_Period>0</peci:First_Primary_Run_of_Pay_Period>
+        <peci:Ad_Hoc_Run>1</peci:Ad_Hoc_Run>
+        <peci:Full_Snapshot>0</peci:Full_Snapshot>
+        <peci:Worker_Count>1</peci:Worker_Count>
+        <peci:Version>1</peci:Version>
+    </peci:Summary>
+	
+		    <peci:Worker>
+        <peci:Worker_Summary>
+            <peci:WID>7c043dfadcef0108e0953041889ac31c</peci:WID>
+            <peci:Employee_ID>yadTJgXqWMSi</peci:Employee_ID>
+            <peci:Name>Kevin Rogers</peci:Name>
+        </peci:Worker_Summary>
+        <peci:Effective_Change peci:Sequence="0">
+            <peci:Derived_Event_Code>HIR</peci:Derived_Event_Code>
+            <peci:Effective_Moment>2018-07-01T00:00:00.000-07:00</peci:Effective_Moment>
+            <peci:Entry_Moment>2018-07-27T03:40:26.578-07:00</peci:Entry_Moment>
+            <peci:Worker_Status peci:isUpdated="1">
+                <peci:Status peci:isAdded="1">Active</peci:Status>
+                <peci:Active peci:priorValue="0">1</peci:Active>
+                <peci:Active_Status_Date peci:isAdded="1">2018-07-01-07:00</peci:Active_Status_Date>
+                <peci:Terminated>0</peci:Terminated>
+                <peci:Hire_Date peci:isAdded="1">2018-07-01-07:00</peci:Hire_Date>
+                <peci:Original_Hire_Date peci:isAdded="1">2018-07-01-07:00</peci:Original_Hire_Date>
+                <peci:Hire_Reason peci:isAdded="1"
+                    >Hire_Employee_New_Hire_Fill_Vacancy</peci:Hire_Reason>
+                <peci:Is_Rehire>0</peci:Is_Rehire>
+                <peci:Continuous_Service_Date peci:isAdded="1"
+                    >2018-07-01-07:00</peci:Continuous_Service_Date>
+                <peci:First_Day_of_Work peci:isAdded="1">2018-07-01-07:00</peci:First_Day_of_Work>
+                <peci:Seniority_Date peci:isAdded="1">2018-07-01-07:00</peci:Seniority_Date>
+                <peci:Regrettable_Termination>0</peci:Regrettable_Termination>
+                <peci:Not_Returning>0</peci:Not_Returning>
+                <peci:Return_Unknown>0</peci:Return_Unknown>
+            </peci:Worker_Status>
+            <peci:Personal peci:isUpdated="1">
+                <peci:Legal_Name peci:isAdded="1">
+                    <peci:Country>AU</peci:Country>
+                    <peci:First_Name>Kevin</peci:First_Name>
+                    <peci:Last_Name>Rogers</peci:Last_Name>
+                    <peci:General_Display_Name>Kevin Rogers</peci:General_Display_Name>
+                </peci:Legal_Name>
+                <peci:Gender peci:isAdded="1">Male</peci:Gender>
+                <peci:Date_of_Birth peci:isAdded="1">1981-01-01-08:00</peci:Date_of_Birth>
+                <peci:Country_of_Birth peci:isAdded="1">AU</peci:Country_of_Birth>
+                <peci:Region_of_Birth peci:isAdded="1">AUS-NSW</peci:Region_of_Birth>
+                <peci:Marital_Status peci:isAdded="1"
+                    >Not_married_single_never_married_Australia</peci:Marital_Status>
+                <peci:Number_of_Payroll_Dependents>0</peci:Number_of_Payroll_Dependents>
+                <peci:Preferred_Language peci:isAdded="1">en_US</peci:Preferred_Language>
+                <peci:Preferred_Locale peci:isAdded="1">en_AU</peci:Preferred_Locale>
+                <peci:Workday_Account peci:isAdded="1">krogers</peci:Workday_Account>
+            </peci:Personal>
+            <peci:Person_Communication peci:isUpdated="1">
+                <peci:Email peci:isAdded="1">
+                    <peci:Usage_Type>WORK</peci:Usage_Type>
+                    <peci:Email_Address>Kevin.Rogers11@ngahr.com</peci:Email_Address>
+                </peci:Email>
+            </peci:Person_Communication>
+            <peci:Person_Identification peci:isUpdated="1">
+                <peci:National_Identifier peci:isAdded="1">
+                    <peci:National_ID>630 493 843</peci:National_ID>
+                    <peci:National_ID_Type>AUS-TFN</peci:National_ID_Type>
+                    <peci:Country>AU</peci:Country>
+                    <peci:Verification_Date>2018-07-27-07:00</peci:Verification_Date>
+                    <peci:Verified_By>21001</peci:Verified_By>
+                </peci:National_Identifier>
+            </peci:Person_Identification>
+            <peci:Position peci:isAdded="1">
+                <peci:Position_ID>P-02622</peci:Position_ID>
+                <peci:Primary_Job>1</peci:Primary_Job>
+                <peci:Business_Title>Integration Engineer</peci:Business_Title>
+                <peci:Worker_Type>Regular</peci:Worker_Type>
+                <peci:Position_Time_Type>Full_time</peci:Position_Time_Type>
+                <peci:Scheduled_Weekly_Hours>40</peci:Scheduled_Weekly_Hours>
+                <peci:Default_Weekly_Hours>40</peci:Default_Weekly_Hours>
+                <peci:Pay_Cycle_Hours>173.33</peci:Pay_Cycle_Hours>
+                <peci:Full_Time_Equivalent_Percentage>1</peci:Full_Time_Equivalent_Percentage>
+                <peci:Job_Classification>
+                    <peci:Job_Classification_Group>JOB_CLASSIFICATION_GROUP-6-21</peci:Job_Classification_Group>
+                    <peci:Job_Classification_ID>180</peci:Job_Classification_ID>
+                    <peci:Job_Classification_Description>Regular/FullTime
+                        Salaried</peci:Job_Classification_Description>
+                    <peci:Mapped_Value>JOB_CLASSIFICATION-6-10109</peci:Mapped_Value>
+                </peci:Job_Classification>
+                <peci:Work_Shift>WORK_SHIFT-6-8</peci:Work_Shift>
+                <peci:Management_Level>8_Individual_Contributor</peci:Management_Level>
+                <peci:Job_Profile>38419</peci:Job_Profile>
+                <peci:Business_Site>
+                    <peci:Location_ID>0002</peci:Location_ID>
+                    <peci:Location_Name>0002 Melbourne</peci:Location_Name>
+                    <peci:Address_ID>ADDRESS_REFERENCE-6-1463</peci:Address_ID>
+                    <peci:Address_Line_1>525 Collins Street</peci:Address_Line_1>
+                    <peci:Address_Line_2>Suite 5000</peci:Address_Line_2>
+                    <peci:City>Melbourne</peci:City>
+                    <peci:Postal_Code>3000</peci:Postal_Code>
+                    <peci:Country>AU</peci:Country>
+                    <peci:Country_Region>AUS-VIC</peci:Country_Region>
+                    <peci:State_Province>Victoria</peci:State_Province>
+                </peci:Business_Site>
+                <peci:Regular_Paid_Equivalent_Hours>0</peci:Regular_Paid_Equivalent_Hours>
+                <peci:Supervisor>
+                    <peci:ID>21002</peci:ID>
+                    <peci:Name>Steve Morgan</peci:Name>
+                </peci:Supervisor>
+                <peci:Supervisor>
+                    <peci:ID>21001</peci:ID>
+                    <peci:Name>Logan McNeil</peci:Name>
+                </peci:Supervisor>
+                <peci:Annual_Work_Period_Work_Percent_Of_Year>0</peci:Annual_Work_Period_Work_Percent_Of_Year>
+                <peci:Organization>
+                    <peci:Organization_ID>COST_CENTER-6-222</peci:Organization_ID>
+                    <peci:Organization_Type>COST_CENTER</peci:Organization_Type>
+                    <peci:Organization_Code>0000010000</peci:Organization_Code>
+                    <peci:Organization_Name>0000010000</peci:Organization_Name>
+                    <peci:Mapped_Value>COST_CENTER-6-222</peci:Mapped_Value>
+                </peci:Organization>
+            </peci:Position>
+            <peci:Compensation_Plans peci:isAdded="1">
+                <peci:Position_ID>P-02622</peci:Position_ID>
+            </peci:Compensation_Plans>
+            <peci:Compensation_Earnings_and_Deductions peci:isAdded="1">
+                <peci:External_Payroll_Code_Name>Base Pay Monthly</peci:External_Payroll_Code_Name>
+                <peci:External_Payroll_Code>0010</peci:External_Payroll_Code>
+                <peci:Earning_or_Deduction>E</peci:Earning_or_Deduction>
+                <peci:Amount>4500</peci:Amount>
+                <peci:Non_Prorated_Amount>4500</peci:Non_Prorated_Amount>
+                <peci:Frequency>Monthly</peci:Frequency>
+                <peci:Currency>AUD</peci:Currency>
+            </peci:Compensation_Earnings_and_Deductions>
+            <peci:Compensation_Earnings_and_Deductions peci:isAdded="1">
+                <peci:External_Payroll_Code_Name>Annual Salary</peci:External_Payroll_Code_Name>
+                <peci:External_Payroll_Code>0990</peci:External_Payroll_Code>
+                <peci:Earning_or_Deduction>E</peci:Earning_or_Deduction>
+                <peci:Amount>54000</peci:Amount>
+                <peci:Non_Prorated_Amount>54000</peci:Non_Prorated_Amount>
+                <peci:Frequency>Annual</peci:Frequency>
+                <peci:Currency>AUD</peci:Currency>
+            </peci:Compensation_Earnings_and_Deductions>
+            <peci:Additional_Information peci:isUpdated="1">
+                <peci:WorkerID>7c043dfadcef0108e0953041889ac31c</peci:WorkerID>
+                <ptdf:PositionID xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >P-02622</ptdf:PositionID>
+                <ptdf:DirectIndirect xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:DirectIndirect>
+                <ptdf:EmployeeGroupCode xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >180</ptdf:EmployeeGroupCode>
+                <ptdf:LocationID xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >0002</ptdf:LocationID>
+                <ptdf:OrganizationalData xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:OrganizationalData>
+                <ptdf:OrganizationID xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >ZZAU</ptdf:OrganizationID>
+                <ptdf:OrganizationName xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1">AUS
+                    B</ptdf:OrganizationName>
+                <ptdf:JobTitle xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1">Integration
+                    Engineer</ptdf:JobTitle>
+                <ptdf:PayGroupCode xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >VN</ptdf:PayGroupCode>
+                <ptdf:PayScaleArea xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >N/A</ptdf:PayScaleArea>
+                <ptdf:PayScaleType xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >N/A</ptdf:PayScaleType>
+                <ptdf:PayScaleGroup xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >Non-Management</ptdf:PayScaleGroup>
+                <ptdf:PayScaleLevel xmlns:ptdf="urn:com.workday/peci/tdf" peci:isAdded="1"
+                    >Non-Management</ptdf:PayScaleLevel>
+                <ptdf:PayrollSpecificGrouping1 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >1</ptdf:PayrollSpecificGrouping1>
+                <ptdf:PayrollSpecificGrouping2 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:PayrollSpecificGrouping2>
+                <ptdf:PayrollSpecificGrouping3 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >3</ptdf:PayrollSpecificGrouping3>
+                <ptdf:PayrollSpecificGrouping4 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >4</ptdf:PayrollSpecificGrouping4>
+                <ptdf:PayrollSpecificGrouping5 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >5</ptdf:PayrollSpecificGrouping5>
+                <ptdf:PayrollSpecificGrouping6 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >6</ptdf:PayrollSpecificGrouping6>
+                <ptdf:PayrollSpecificGrouping7 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >7</ptdf:PayrollSpecificGrouping7>
+                <ptdf:PayrollSpecificGrouping8 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >8</ptdf:PayrollSpecificGrouping8>
+                <ptdf:PayrollSpecificGrouping9 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >9</ptdf:PayrollSpecificGrouping9>
+                <ptdf:PayrollSpecificGrouping10 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >10</ptdf:PayrollSpecificGrouping10>
+                <ptdf:ScheduledDays xmlns:ptdf="urn:com.workday/peci/tdf">5</ptdf:ScheduledDays>
+                <ptdf:TimeApprover xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:TimeApprover>
+                <ptdf:TimeIndicator xmlns:ptdf="urn:com.workday/peci/tdf">3</ptdf:TimeIndicator>
+                <ptdf:WorkAddress xmlns:ptdf="urn:com.workday/peci/tdf" peci:priorValue="||"
+                    >Melbourne|Victoria|3000</ptdf:WorkAddress>
+            </peci:Additional_Information>
+        </peci:Effective_Change>
+        <peci:Effective_Change peci:Sequence="1">
+            <peci:Derived_Event_Code>DTA</peci:Derived_Event_Code>
+            <peci:Effective_Moment>2018-07-27T03:42:31.487-07:00</peci:Effective_Moment>
+            <peci:Entry_Moment>2018-07-27T03:42:31.487-07:00</peci:Entry_Moment>
+            <peci:Position>
+                <peci:Position_ID>P-02622</peci:Position_ID>
+                <peci:Primary_Job>1</peci:Primary_Job>
+                <peci:Business_Title>Integration Engineer</peci:Business_Title>
+                <peci:Worker_Type>Regular</peci:Worker_Type>
+                <peci:Position_Time_Type>Full_time</peci:Position_Time_Type>
+                <peci:Scheduled_Weekly_Hours>40</peci:Scheduled_Weekly_Hours>
+                <peci:Default_Weekly_Hours>40</peci:Default_Weekly_Hours>
+                <peci:Pay_Cycle_Hours>173.33</peci:Pay_Cycle_Hours>
+                <peci:Full_Time_Equivalent_Percentage>1</peci:Full_Time_Equivalent_Percentage>
+                <peci:Job_Classification>
+                    <peci:Job_Classification_Group>JOB_CLASSIFICATION_GROUP-6-21</peci:Job_Classification_Group>
+                    <peci:Job_Classification_ID>180</peci:Job_Classification_ID>
+                    <peci:Job_Classification_Description>Regular/FullTime
+                        Salaried</peci:Job_Classification_Description>
+                    <peci:Mapped_Value>JOB_CLASSIFICATION-6-10109</peci:Mapped_Value>
+                </peci:Job_Classification>
+                <peci:Work_Shift>WORK_SHIFT-6-8</peci:Work_Shift>
+                <peci:Management_Level>8_Individual_Contributor</peci:Management_Level>
+                <peci:Job_Profile>38419</peci:Job_Profile>
+                <peci:Business_Site>
+                    <peci:Location_ID>0002</peci:Location_ID>
+                    <peci:Location_Name>0002 Melbourne</peci:Location_Name>
+                    <peci:Address_ID>ADDRESS_REFERENCE-6-1463</peci:Address_ID>
+                    <peci:Address_Line_1>525 Collins Street</peci:Address_Line_1>
+                    <peci:Address_Line_2>Suite 5000</peci:Address_Line_2>
+                    <peci:City>Melbourne</peci:City>
+                    <peci:Postal_Code>3000</peci:Postal_Code>
+                    <peci:Country>AU</peci:Country>
+                    <peci:Country_Region>AUS-VIC</peci:Country_Region>
+                    <peci:State_Province>Victoria</peci:State_Province>
+                </peci:Business_Site>
+                <peci:Regular_Paid_Equivalent_Hours>0</peci:Regular_Paid_Equivalent_Hours>
+                <peci:Supervisor>
+                    <peci:ID>21002</peci:ID>
+                    <peci:Name>Steve Morgan</peci:Name>
+                </peci:Supervisor>
+                <peci:Supervisor>
+                    <peci:ID>21001</peci:ID>
+                    <peci:Name>Logan McNeil</peci:Name>
+                </peci:Supervisor>
+                <peci:Annual_Work_Period_Work_Percent_Of_Year>0</peci:Annual_Work_Period_Work_Percent_Of_Year>
+                <peci:Organization>
+                    <peci:Organization_ID>COST_CENTER-6-222</peci:Organization_ID>
+                    <peci:Organization_Type>COST_CENTER</peci:Organization_Type>
+                    <peci:Organization_Code>0000010000</peci:Organization_Code>
+                    <peci:Organization_Name>0000010000</peci:Organization_Name>
+                    <peci:Mapped_Value>COST_CENTER-6-222</peci:Mapped_Value>
+                </peci:Organization>
+            </peci:Position>
+            <peci:Payment_Election peci:isAdded="1">
+                <peci:Payment_Election_Rule>EXTERNAL_PAYROLL_SYSTEM</peci:Payment_Election_Rule>
+                <peci:Order>1</peci:Order>
+                <peci:Payment_Type>Direct Deposit</peci:Payment_Type>
+                <peci:Country>AU</peci:Country>
+                <peci:Currency>AUD</peci:Currency>
+                <peci:Bank_Account_Name>Kevin Rogers</peci:Bank_Account_Name>
+                <peci:Account_Number>12345678</peci:Account_Number>
+                <peci:Account_Type>DDA</peci:Account_Type>
+                <peci:Bank_Name>Kangaroo Bank</peci:Bank_Name>
+                <peci:Bank_ID>900-123</peci:Bank_ID>
+                <peci:Distribution_Balance>1</peci:Distribution_Balance>
+            </peci:Payment_Election>
+            <peci:Additional_Information>
+                <peci:WorkerID>7c043dfadcef0108e0953041889ac31c</peci:WorkerID>
+                <ptdf:PositionID xmlns:ptdf="urn:com.workday/peci/tdf">P-02622</ptdf:PositionID>
+                <ptdf:DirectIndirect xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:DirectIndirect>
+                <ptdf:EmployeeGroupCode xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >180</ptdf:EmployeeGroupCode>
+                <ptdf:LocationID xmlns:ptdf="urn:com.workday/peci/tdf">0002</ptdf:LocationID>
+                <ptdf:OrganizationalData xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:OrganizationalData>
+                <ptdf:OrganizationID xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >ZZAU</ptdf:OrganizationID>
+                <ptdf:OrganizationName xmlns:ptdf="urn:com.workday/peci/tdf">AUS
+                    B</ptdf:OrganizationName>
+                <ptdf:JobTitle xmlns:ptdf="urn:com.workday/peci/tdf">Integration
+                    Engineer</ptdf:JobTitle>
+                <ptdf:PayGroupCode xmlns:ptdf="urn:com.workday/peci/tdf">VN</ptdf:PayGroupCode>
+                <ptdf:PayScaleArea xmlns:ptdf="urn:com.workday/peci/tdf">N/A</ptdf:PayScaleArea>
+                <ptdf:PayScaleType xmlns:ptdf="urn:com.workday/peci/tdf">N/A</ptdf:PayScaleType>
+                <ptdf:PayScaleGroup xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Non-Management</ptdf:PayScaleGroup>
+                <ptdf:PayScaleLevel xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Non-Management</ptdf:PayScaleLevel>
+                <ptdf:PayrollSpecificGrouping1 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >1</ptdf:PayrollSpecificGrouping1>
+                <ptdf:PayrollSpecificGrouping2 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:PayrollSpecificGrouping2>
+                <ptdf:PayrollSpecificGrouping3 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >3</ptdf:PayrollSpecificGrouping3>
+                <ptdf:PayrollSpecificGrouping4 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >4</ptdf:PayrollSpecificGrouping4>
+                <ptdf:PayrollSpecificGrouping5 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >5</ptdf:PayrollSpecificGrouping5>
+                <ptdf:PayrollSpecificGrouping6 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >6</ptdf:PayrollSpecificGrouping6>
+                <ptdf:PayrollSpecificGrouping7 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >7</ptdf:PayrollSpecificGrouping7>
+                <ptdf:PayrollSpecificGrouping8 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >8</ptdf:PayrollSpecificGrouping8>
+                <ptdf:PayrollSpecificGrouping9 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >9</ptdf:PayrollSpecificGrouping9>
+                <ptdf:PayrollSpecificGrouping10 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >10</ptdf:PayrollSpecificGrouping10>
+                <ptdf:ScheduledDays xmlns:ptdf="urn:com.workday/peci/tdf">5</ptdf:ScheduledDays>
+                <ptdf:TimeApprover xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:TimeApprover>
+                <ptdf:TimeIndicator xmlns:ptdf="urn:com.workday/peci/tdf">3</ptdf:TimeIndicator>
+                <ptdf:WorkAddress xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Melbourne|Victoria|3000</ptdf:WorkAddress>
+            </peci:Additional_Information>
+        </peci:Effective_Change>
+        <peci:Effective_Change peci:Sequence="2">
+            <peci:Derived_Event_Code>DTA</peci:Derived_Event_Code>
+            <peci:Effective_Moment>2018-07-27T03:43:52.788-07:00</peci:Effective_Moment>
+            <peci:Entry_Moment>2018-07-27T03:43:52.788-07:00</peci:Entry_Moment>
+            <peci:Position>
+                <peci:Position_ID>P-02622</peci:Position_ID>
+                <peci:Primary_Job>1</peci:Primary_Job>
+                <peci:Business_Title>Integration Engineer</peci:Business_Title>
+                <peci:Worker_Type>Regular</peci:Worker_Type>
+                <peci:Position_Time_Type>Full_time</peci:Position_Time_Type>
+                <peci:Scheduled_Weekly_Hours>40</peci:Scheduled_Weekly_Hours>
+                <peci:Default_Weekly_Hours>40</peci:Default_Weekly_Hours>
+                <peci:Pay_Cycle_Hours>173.33</peci:Pay_Cycle_Hours>
+                <peci:Full_Time_Equivalent_Percentage>1</peci:Full_Time_Equivalent_Percentage>
+                <peci:Job_Classification>
+                    <peci:Job_Classification_Group>JOB_CLASSIFICATION_GROUP-6-21</peci:Job_Classification_Group>
+                    <peci:Job_Classification_ID>180</peci:Job_Classification_ID>
+                    <peci:Job_Classification_Description>Regular/FullTime
+                        Salaried</peci:Job_Classification_Description>
+                    <peci:Mapped_Value>JOB_CLASSIFICATION-6-10109</peci:Mapped_Value>
+                </peci:Job_Classification>
+                <peci:Work_Shift>WORK_SHIFT-6-8</peci:Work_Shift>
+                <peci:Management_Level>8_Individual_Contributor</peci:Management_Level>
+                <peci:Job_Profile>38419</peci:Job_Profile>
+                <peci:Business_Site>
+                    <peci:Location_ID>0002</peci:Location_ID>
+                    <peci:Location_Name>0002 Melbourne</peci:Location_Name>
+                    <peci:Address_ID>ADDRESS_REFERENCE-6-1463</peci:Address_ID>
+                    <peci:Address_Line_1>525 Collins Street</peci:Address_Line_1>
+                    <peci:Address_Line_2>Suite 5000</peci:Address_Line_2>
+                    <peci:City>Melbourne</peci:City>
+                    <peci:Postal_Code>3000</peci:Postal_Code>
+                    <peci:Country>AU</peci:Country>
+                    <peci:Country_Region>AUS-VIC</peci:Country_Region>
+                    <peci:State_Province>Victoria</peci:State_Province>
+                </peci:Business_Site>
+                <peci:Regular_Paid_Equivalent_Hours>0</peci:Regular_Paid_Equivalent_Hours>
+                <peci:Supervisor>
+                    <peci:ID>21002</peci:ID>
+                    <peci:Name>Steve Morgan</peci:Name>
+                </peci:Supervisor>
+                <peci:Supervisor>
+                    <peci:ID>21001</peci:ID>
+                    <peci:Name>Logan McNeil</peci:Name>
+                </peci:Supervisor>
+                <peci:Annual_Work_Period_Work_Percent_Of_Year>0</peci:Annual_Work_Period_Work_Percent_Of_Year>
+                <peci:Organization>
+                    <peci:Organization_ID>COST_CENTER-6-222</peci:Organization_ID>
+                    <peci:Organization_Type>COST_CENTER</peci:Organization_Type>
+                    <peci:Organization_Code>0000010000</peci:Organization_Code>
+                    <peci:Organization_Name>0000010000</peci:Organization_Name>
+                    <peci:Mapped_Value>COST_CENTER-6-222</peci:Mapped_Value>
+                </peci:Organization>
+            </peci:Position>
+            <peci:Payment_Election peci:isUpdated="1">
+                <peci:Payment_Election_Rule>EXTERNAL_PAYROLL_SYSTEM</peci:Payment_Election_Rule>
+                <peci:Order peci:priorValue="1">2</peci:Order>
+                <peci:Payment_Type>Direct Deposit</peci:Payment_Type>
+                <peci:Country>AU</peci:Country>
+                <peci:Currency>AUD</peci:Currency>
+                <peci:Bank_Account_Name>Kevin Rogers</peci:Bank_Account_Name>
+                <peci:Account_Number>12345678</peci:Account_Number>
+                <peci:Account_Type>DDA</peci:Account_Type>
+                <peci:Bank_Name>Kangaroo Bank</peci:Bank_Name>
+                <peci:Bank_ID>900-123</peci:Bank_ID>
+                <peci:Distribution_Percentage peci:priorValue="0">0.7</peci:Distribution_Percentage>
+                <peci:Distribution_Balance peci:priorValue="1">0</peci:Distribution_Balance>
+            </peci:Payment_Election>
+            <peci:Payment_Election peci:isAdded="1">
+                <peci:Payment_Election_Rule>EXTERNAL_PAYROLL_SYSTEM</peci:Payment_Election_Rule>
+                <peci:Order>1</peci:Order>
+                <peci:Payment_Type>Direct Deposit</peci:Payment_Type>
+                <peci:Country>AU</peci:Country>
+                <peci:Currency>AUD</peci:Currency>
+                <peci:Bank_Account_Name>Kevin Rogers</peci:Bank_Account_Name>
+                <peci:Account_Number>9876343</peci:Account_Number>
+                <peci:Account_Type>DDA</peci:Account_Type>
+                <peci:Bank_Name>Gator Bank</peci:Bank_Name>
+                <peci:Bank_ID>900-345</peci:Bank_ID>
+                <peci:Distribution_Percentage>0.3</peci:Distribution_Percentage>
+            </peci:Payment_Election>
+            <peci:Additional_Information>
+                <peci:WorkerID>7c043dfadcef0108e0953041889ac31c</peci:WorkerID>
+                <ptdf:PositionID xmlns:ptdf="urn:com.workday/peci/tdf">P-02622</ptdf:PositionID>
+                <ptdf:DirectIndirect xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:DirectIndirect>
+                <ptdf:EmployeeGroupCode xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >180</ptdf:EmployeeGroupCode>
+                <ptdf:LocationID xmlns:ptdf="urn:com.workday/peci/tdf">0002</ptdf:LocationID>
+                <ptdf:OrganizationalData xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:OrganizationalData>
+                <ptdf:OrganizationID xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >ZZAU</ptdf:OrganizationID>
+                <ptdf:OrganizationName xmlns:ptdf="urn:com.workday/peci/tdf">AUS
+                    B</ptdf:OrganizationName>
+                <ptdf:JobTitle xmlns:ptdf="urn:com.workday/peci/tdf">Integration
+                    Engineer</ptdf:JobTitle>
+                <ptdf:PayGroupCode xmlns:ptdf="urn:com.workday/peci/tdf">VN</ptdf:PayGroupCode>
+                <ptdf:PayScaleArea xmlns:ptdf="urn:com.workday/peci/tdf">N/A</ptdf:PayScaleArea>
+                <ptdf:PayScaleType xmlns:ptdf="urn:com.workday/peci/tdf">N/A</ptdf:PayScaleType>
+                <ptdf:PayScaleGroup xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Non-Management</ptdf:PayScaleGroup>
+                <ptdf:PayScaleLevel xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Non-Management</ptdf:PayScaleLevel>
+                <ptdf:PayrollSpecificGrouping1 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >1</ptdf:PayrollSpecificGrouping1>
+                <ptdf:PayrollSpecificGrouping2 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >2</ptdf:PayrollSpecificGrouping2>
+                <ptdf:PayrollSpecificGrouping3 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >3</ptdf:PayrollSpecificGrouping3>
+                <ptdf:PayrollSpecificGrouping4 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >4</ptdf:PayrollSpecificGrouping4>
+                <ptdf:PayrollSpecificGrouping5 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >5</ptdf:PayrollSpecificGrouping5>
+                <ptdf:PayrollSpecificGrouping6 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >6</ptdf:PayrollSpecificGrouping6>
+                <ptdf:PayrollSpecificGrouping7 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >7</ptdf:PayrollSpecificGrouping7>
+                <ptdf:PayrollSpecificGrouping8 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >8</ptdf:PayrollSpecificGrouping8>
+                <ptdf:PayrollSpecificGrouping9 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >9</ptdf:PayrollSpecificGrouping9>
+                <ptdf:PayrollSpecificGrouping10 xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >10</ptdf:PayrollSpecificGrouping10>
+                <ptdf:ScheduledDays xmlns:ptdf="urn:com.workday/peci/tdf">5</ptdf:ScheduledDays>
+                <ptdf:TimeApprover xmlns:ptdf="urn:com.workday/peci/tdf">1</ptdf:TimeApprover>
+                <ptdf:TimeIndicator xmlns:ptdf="urn:com.workday/peci/tdf">3</ptdf:TimeIndicator>
+                <ptdf:WorkAddress xmlns:ptdf="urn:com.workday/peci/tdf"
+                    >Melbourne|Victoria|3000</ptdf:WorkAddress>
+            </peci:Additional_Information>
+        </peci:Effective_Change>
+    </peci:Worker>
+	</peci:Workers_Effective_Stack>

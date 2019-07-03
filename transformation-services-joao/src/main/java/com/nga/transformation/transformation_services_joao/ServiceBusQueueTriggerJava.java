@@ -1,12 +1,20 @@
 package com.nga.transformation.transformation_services_joao;
 
 import com.microsoft.azure.functions.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import com.microsoft.azure.functions.*;
 
 /**
  * Azure Functions with Service Bus Trigger.
  */
 public class ServiceBusQueueTriggerJava {
+	private static final String containerName = "batchfiles";
+	private static final String containerNameCanonical = "canonical";
+
+	
     /**
      * This function will be invoked when a new message is received at the Service Bus Queue.
      */
@@ -19,8 +27,19 @@ public class ServiceBusQueueTriggerJava {
         context.getLogger().info(message);
         BlobStorage blobStorage = new BlobStorage();
         try {
-        	String originalFile = blobStorage.getBlob(message);
+        	String originalFile = blobStorage.getBlob(message,containerName);
         	context.getLogger().info(originalFile);
+        	ApplyXSLT apply = new ApplyXSLT();
+    		Map<String, String> params = new HashMap<String, String>();
+    		params.put("logicalID", "ZZA-VN002-1001");
+    		params.put("releaseID","90");
+    		params.put("systemEnvironmentCode","aZURE");
+    		params.put("languageCode","en-US");
+    		params.put("referenceID","jowowe");
+    		String transformedFile = new String(apply.saxonTransform(params, originalFile));
+    		context.getLogger().info(transformedFile);
+    		blobStorage.writeBlob(message+"transformed.xml", containerNameCanonical, transformedFile);
+        	
         }catch(Exception e) {
         	context.getLogger().info(e.getLocalizedMessage());
         }

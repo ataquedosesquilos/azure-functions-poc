@@ -13,10 +13,9 @@ public class BlobStorage {
 	CloudBlobClient blobClient = null;
 	CloudBlobContainer container=null;
 	private static final String storageConnectionString="DefaultEndpointsProtocol=https;AccountName=ingestfile;AccountKey=t0+MJ4WZZPBLKD1kceMp9QnmW36TQMpGxQ/uhPgglyrZxfoo5Fpzw5t66DNBsoxowbz9bvFki7ZDD+CwiuGehQ==;EndpointSuffix=core.windows.net";
-	private static final String containerName = "batchfiles";
 	
 	
-	public String getBlob(String id) throws Exception {
+	public String getBlob(String id, String containerName) throws Exception {
 		String file;
 		try {
 			storageAccount = CloudStorageAccount.parse(storageConnectionString);
@@ -36,5 +35,23 @@ public class BlobStorage {
 		
 		return file;
 	}
+	
+	public void writeBlob(String id, String containerName, String file) throws Exception {
+		try {
+			storageAccount = CloudStorageAccount.parse(storageConnectionString);
+			blobClient = storageAccount.createCloudBlobClient();
+			container = blobClient.getContainerReference(containerName);
+			
+			
+			CloudBlockBlob blob = container.getBlockBlobReference(id);
+			blob.uploadText(file);
+			
+		}catch(Exception e) {
+			throw e;
+		}
+	}
+		
+		
+	
 
 }
