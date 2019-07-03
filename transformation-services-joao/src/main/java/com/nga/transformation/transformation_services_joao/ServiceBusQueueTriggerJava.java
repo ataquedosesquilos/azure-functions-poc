@@ -36,7 +36,9 @@ public class ServiceBusQueueTriggerJava {
     		params.put("systemEnvironmentCode","aZURE");
     		params.put("languageCode","en-US");
     		params.put("referenceID","jowowe");
+    		context.getLogger().info("transforming file " + message);
     		String transformedFile = new String(apply.saxonTransform(params, originalFile));
+    		context.getLogger().info("transformed file " + message);
     		context.getLogger().info(transformedFile);
     		blobStorage.writeBlob(message+"transformed.xml", containerNameCanonical, transformedFile);
         	
