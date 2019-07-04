@@ -31,7 +31,6 @@ public class ServiceBusQueueTriggerJava {
         BlobStorage blobStorage = new BlobStorage();
         try {
         	String originalFile = blobStorage.getBlob(message,containerName);
-        	context.getLogger().info(originalFile);
         	ApplyXSLT apply = new ApplyXSLT();
     		Map<String, String> params = new HashMap<String, String>();
     		params.put("logicalID", "ZZA-VN002-1001");
