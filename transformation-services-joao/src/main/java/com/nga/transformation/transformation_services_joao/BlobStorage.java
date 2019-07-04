@@ -34,6 +34,25 @@ public class BlobStorage {
 		return file;
 	}
 	
+	public ByteArrayOutputStream getBlobStream(String id, String containerName) throws Exception {
+		ByteArrayOutputStream stream;
+		try {
+			storageAccount = CloudStorageAccount.parse(storageConnectionString);
+			blobClient = storageAccount.createCloudBlobClient();
+			container = blobClient.getContainerReference(containerName);
+			
+			
+			CloudBlob blob =  container.getBlobReferenceFromServer(id);
+			stream = new ByteArrayOutputStream();
+			blob.download(stream);			
+		}catch(Exception e) {
+			throw e;
+		}
+		
+		
+		return stream;
+	}
+	
 	public void writeBlob(String id, String containerName, String file) throws Exception {
 		try {
 			storageAccount = CloudStorageAccount.parse(storageConnectionString);
