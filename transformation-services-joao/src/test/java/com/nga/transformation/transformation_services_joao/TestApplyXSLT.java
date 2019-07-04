@@ -1,14 +1,16 @@
 package com.nga.transformation.transformation_services_joao;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.nga.transformation.transformation_services_joao.ApplyXSLT;
 
 import javax.xml.transform.TransformerException;
 
 public class TestApplyXSLT {
 
-	public static void main(String[] args) throws FileNotFoundException, TransformerException {
+	public static void main(String[] args) throws TransformerException, IOException {
 		String file = TestApplyXSLT.class.getClassLoader().getResource("ZZAVN00210091562167176.62.xml").getFile();
 		ApplyXSLT apply = new ApplyXSLT();
 		Map<String, String> params = new HashMap<String, String>();
@@ -17,7 +19,13 @@ public class TestApplyXSLT {
 		params.put("systemEnvironmentCode","aZURE");
 		params.put("languageCode","en-US");
 		params.put("referenceID","jowowe");
-		String banana = new String(apply.saxonTransform(params, file));
+		String banana = null;
+		try {
+			banana = new String(apply.saxonTransform(params, file));
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println(banana);
 		
 

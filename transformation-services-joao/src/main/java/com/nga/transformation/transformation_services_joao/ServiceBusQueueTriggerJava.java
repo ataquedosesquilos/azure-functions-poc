@@ -2,8 +2,11 @@ package com.nga.transformation.transformation_services_joao;
 
 import com.microsoft.azure.functions.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+
 
 import com.microsoft.azure.functions.*;
 
@@ -37,13 +40,22 @@ public class ServiceBusQueueTriggerJava {
     		params.put("languageCode","en-US");
     		params.put("referenceID","jowowe");
     		context.getLogger().info("transforming file " + message);
+    		BufferedReader buf = new BufferedReader(new InputStreamReader(ServiceBusQueueTriggerJava.class.getClassLoader().getResourceAsStream("PECI2BOD.xsl"))); 
+    		String line = buf.readLine(); 
+    		StringBuilder sb = new StringBuilder();
+    		while(line != null){ 
+    			sb.append(line).append("\n"); 
+    			line = buf.readLine(); 
+    		} 
+    		String fileAsString = sb.toString();
+    		context.getLogger().info("XSLT: " + fileAsString);
     		String transformedFile = new String(apply.saxonTransform(params, originalFile));
     		context.getLogger().info("transformed file " + message);
     		context.getLogger().info(transformedFile);
     		blobStorage.writeBlob(message+"transformed.xml", containerNameCanonical, transformedFile);
         	
         }catch(Exception e) {
-        	context.getLogger().info(e.getLocalizedMessage());
+        	context.getLogger().info("Failed " +  e.getLocalizedMessage());
         }
 		
     }

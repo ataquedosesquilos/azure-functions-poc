@@ -1,8 +1,6 @@
 package com.nga.transformation.transformation_services_joao;
 
 import java.io.ByteArrayOutputStream;
-import java.net.URISyntaxException;
-import java.security.InvalidKeyException;
 
 import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.blob.*;
