@@ -42,6 +42,18 @@ public class GospelRecord extends Record {
 	}
 	
 	public void writeRecord(Optional<String> id) throws GospelException {
+		try {
+			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
+			for (Record recordX : records) {
+			    System.out.println(recordX.toString());
+			}
+			
+		} catch (InterruptedException | ExecutionException | TimeoutException  e) {
+			throw new GospelException(e);
+		}
+	}
+	
+	public void writeRecordWithCallback(Optional<String> id) throws GospelException {
 		this.gospelPropagation = new Thread(new GospelPropagationHandler(id.orElse(this.record.get(0).getId()),this.gospelConsumer));
 		this.gospelPropagation.start();
 		try {
