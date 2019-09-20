@@ -32,7 +32,7 @@ public class Bod {
 			if (encryptedBod == null)
 				throw new SomeElseException("Couldn't find file");
 			//
-			json.put("Bod", "\"" + new String (Encryption.decryptData(Utils.getEnvironmentConfig("SecretKey")+getEmployeeKey(employeeId), encryptedBod)) + "\"" );
+			json.put("Bod", new String (Encryption.decryptData(Utils.getEnvironmentConfig("SecretKey")+getEmployeeKey(employeeId), encryptedBod))  );
 			
 			return json.toString();
 		} catch (Exception e) {
