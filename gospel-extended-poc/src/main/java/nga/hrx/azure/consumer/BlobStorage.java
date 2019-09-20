@@ -12,7 +12,7 @@ import nga.hrx.utils.Utils;
 public class BlobStorage {
 	
 	
-	public static String getBlob(String id, String containerName) throws AzureException {
+	public static byte[] getBlob(String id, String containerName) throws AzureException {
 		try {
 			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorage"));
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
@@ -22,7 +22,7 @@ public class BlobStorage {
 			CloudBlob blob =  container.getBlobReferenceFromServer(id);
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
 			blob.download(stream);
-			return  new String(stream. toByteArray());
+			return stream.toByteArray();
 		}catch(Exception e) {
 			throw new AzureException(e);
 		}
