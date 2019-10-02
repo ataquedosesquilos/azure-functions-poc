@@ -26,6 +26,7 @@ public class Gospel_Extended_POC {
 	        // Parse query parameter
 	        String id = null;
 	        String bodyJson = request.getBody().orElse("{}");
+	        context.getLogger().log(Level.INFO, bodyJson);
 	        try {
 				id = Client.createRecord(bodyJson);
 			} catch (ApiException e) {
@@ -36,6 +37,7 @@ public class Gospel_Extended_POC {
 	        if (id == null) {
 	            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
 	        } else {
+	        	 context.getLogger().log(Level.INFO, "{name:" + id +" }");
 	            return request.createResponseBuilder(HttpStatus.OK).body("{name:" + id +" }").build();
 	        }
 	    }
