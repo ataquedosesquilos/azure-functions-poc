@@ -9,12 +9,13 @@ import java.util.concurrent.TimeoutException;
 
 import org.json.JSONObject;
 
+import nga.hrx.utils.Utils;
 import tech.gospel.sdk.model.Record;
 import tech.gospel.sdk.model.RecordType;
 
 public class GospelRecord extends Record {
 	
-	private final int GOSPEL_TIMEOUT = 1200;
+	private int GOSPEL_TIMEOUT = 1200;
 	
 	private GospelConsumer gospelConsumer;
 	private ArrayList<Record> record;
@@ -26,6 +27,7 @@ public class GospelRecord extends Record {
 	}
 	
 	public GospelRecord()   throws GospelException {
+		this.GOSPEL_TIMEOUT = Integer.parseInt(Utils.getEnvironmentConfig("GospelTimeout"));
 		this.gospelConsumer = new GospelConsumer();
 		this.record = new ArrayList<Record>();
 	}
