@@ -32,7 +32,7 @@ public class Gospel_Extended_POC {
 	        try {
 				id = Client.createRecord(bodyJson);
 			} catch (ApiException e) {
-				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
+				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + ExceptionUtils.getStackTrace(e)  + "\"}" ).build(); 
 			}
 
@@ -57,7 +57,7 @@ public class Gospel_Extended_POC {
 	        try {
 	        	return request.createResponseBuilder(HttpStatus.OK).body(Client.readRecord(id, type)).build();
 			} catch (ApiException e) {
-				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
+				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " +  ExceptionUtils.getStackTrace(e)   + "\"}" ).build(); 
 			}
 
