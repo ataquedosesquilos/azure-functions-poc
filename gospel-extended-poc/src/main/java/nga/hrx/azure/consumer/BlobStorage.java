@@ -14,7 +14,7 @@ public class BlobStorage {
 	
 	public static byte[] getBlob(String id, String containerName) throws AzureException {
 		try {
-			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorage"));
+			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorageBods"));
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference(containerName);
 			
@@ -30,7 +30,7 @@ public class BlobStorage {
 	
 	public static void writeBlob(String id, String containerName, String file) throws AzureException {
 		try {
-			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorage"));
+			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorageBods"));
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference(containerName);
 			
@@ -46,7 +46,7 @@ public class BlobStorage {
 	
 	public static void writeBlob(String id, String containerName, byte[] file) throws AzureException {
 		try {
-			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorage"));
+			CloudStorageAccount storageAccount = CloudStorageAccount.parse(Utils.getEnvironmentConfig("AzureWebJobsStorageBods"));
 			CloudBlobClient blobClient = storageAccount.createCloudBlobClient();
 			CloudBlobContainer container = blobClient.getContainerReference(containerName);
 			
