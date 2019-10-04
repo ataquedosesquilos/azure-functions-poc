@@ -3,6 +3,8 @@ package nga.hrx.gospel;
 import java.util.Optional;
 import java.util.logging.Level;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
 import com.microsoft.azure.functions.HttpRequestMessage;
@@ -31,7 +33,7 @@ public class Gospel_Extended_POC {
 				id = Client.createRecord(bodyJson);
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
-	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + e.getLocalizedMessage()  + "\"}" ).build(); 
+	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + ExceptionUtils.getStackTrace(e)  + "\"}" ).build(); 
 			}
 
 	        if (id == null) {
@@ -56,7 +58,7 @@ public class Gospel_Extended_POC {
 	        	return request.createResponseBuilder(HttpStatus.OK).body(Client.readRecord(id, type)).build();
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
-	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + e.getLocalizedMessage()  + "\"}" ).build(); 
+	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " +  ExceptionUtils.getStackTrace(e)   + "\"}" ).build(); 
 			}
 
 	       

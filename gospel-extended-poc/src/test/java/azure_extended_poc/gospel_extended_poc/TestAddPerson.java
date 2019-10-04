@@ -33,7 +33,9 @@ public class TestAddPerson {
 		System.out.print(json.toString());
 
 		recordz.writeRecord(Optional.empty());
-		while(true) {}
+		
+		System.out.println("Record is written" + recordz.toString());
+	
 		
 	}
 

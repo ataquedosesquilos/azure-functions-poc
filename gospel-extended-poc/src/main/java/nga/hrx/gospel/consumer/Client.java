@@ -1,6 +1,5 @@
 package nga.hrx.gospel.consumer;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -11,6 +10,7 @@ import nga.hrx.utils.ApiException;
 
 public class Client {
 	
+	@SuppressWarnings("unchecked")
 	public static String  createRecord(String jsonString) throws ApiException {
 		String id = null;
 		try {
@@ -25,7 +25,7 @@ public class Client {
 			recordz.writeRecord( Optional.of(id));
 			return id;
 		} catch ( Exception e) {
-			throw new ApiException( id + e.getLocalizedMessage());
+			throw new ApiException( e);
 		}
 	}
 	
@@ -34,7 +34,7 @@ public class Client {
 			GospelRecord recordz  = new GospelRecord();
 			return recordz.readRecord(id, type);
 		} catch ( Exception e) {
-			throw new ApiException( id + e.getLocalizedMessage());
+			throw new ApiException(e);
 		}
 	}
 	
