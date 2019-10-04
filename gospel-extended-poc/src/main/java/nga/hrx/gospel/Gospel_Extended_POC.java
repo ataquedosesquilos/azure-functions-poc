@@ -20,11 +20,12 @@ import nga.hrx.utils.ApiException;
 
 public class Gospel_Extended_POC {
 
+	
+	
 	 @FunctionName("writetogospel")
 	    public HttpResponseMessage run(
 	            @HttpTrigger(name = "req", methods = { HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS , route = "records") HttpRequestMessage<Optional<String>> request, 
 	            final ExecutionContext context) {
-
 	        // Parse query parameter
 	        String id = null;
 	        String bodyJson = request.getBody().orElse("{}");
@@ -49,8 +50,7 @@ public class Gospel_Extended_POC {
 	    public HttpResponseMessage get(
 	            @HttpTrigger(name = "req", methods = { HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS , route = "records/{id}") HttpRequestMessage<Optional<String>> request,  @BindingName("id") String id,  
 	            final ExecutionContext context) {
-	       
-	        
+		 
 	        String type = request.getQueryParameters().get("type");
 	        if(id == null || type == null)
 	        	return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("mandatory fields are missing").build();

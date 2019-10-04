@@ -11,7 +11,7 @@ import nga.hrx.utils.ApiException;
 public class Client {
 	
 	@SuppressWarnings("unchecked")
-	public static String  createRecord(String jsonString) throws ApiException {
+	public static  String  createRecord(String jsonString) throws ApiException {
 		String id = null;
 		try {
 			Map<String, Object> fields = new ObjectMapper().readValue(jsonString, HashMap.class);
@@ -29,7 +29,7 @@ public class Client {
 		}
 	}
 	
-	public static String readRecord(String id, String type) throws ApiException {
+	public static  String readRecord(String id, String type) throws ApiException {
 		try {
 			GospelRecord recordz  = new GospelRecord();
 			return recordz.readRecord(id, type);

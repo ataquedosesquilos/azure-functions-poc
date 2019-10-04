@@ -12,6 +12,7 @@ import nga.hrx.gospel.consumer.Client;
 public class Bod {
 	
 	 private final String RECORD_TYPE="EMPLOYEE";
+	 Client client = new Client();
 	
 	public void storeFile(String employeeId, String bodXml, String filename, String container) throws SomeElseException {
 		try {			
@@ -41,7 +42,7 @@ public class Bod {
 	}
 	
 	private String getEmployeeKey(String employeeId) throws JSONException, ApiException, SomeElseException {
-		JSONObject json = new JSONObject(Client.readRecord(employeeId, this.RECORD_TYPE));
+		JSONObject json = new JSONObject(client.readRecord(employeeId, this.RECORD_TYPE));
 		String employeeKey =  json.getString("EmployeeKey");
 		if(employeeKey == null)
 			throw new SomeElseException("Employee Key can't be null");
