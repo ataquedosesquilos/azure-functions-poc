@@ -8,14 +8,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.json.JSONObject;
-
-import nga.hrx.utils.Utils;
 import tech.gospel.sdk.model.Record;
 import tech.gospel.sdk.model.RecordType;
 
 public class GospelRecord extends Record {
 	
-	private int gospelTimeout = 120;
+	private final int GOSPEL_TIMEOUT = 120;
 	
 	private GospelConsumer gospelConsumer;
 	private ArrayList<Record> record;
@@ -27,7 +25,7 @@ public class GospelRecord extends Record {
 	}
 	
 	public GospelRecord()   throws GospelException {
-		this.gospelTimeout = Integer.parseInt(Utils.getEnvironmentConfig("GospelTimeout"));
+		//this.gospelTimeout = Integer.parseInt(Utils.getEnvironmentConfig("GospelTimeout"));
 		this.gospelConsumer = new GospelConsumer();
 		this.record = new ArrayList<Record>();
 	}
@@ -45,7 +43,7 @@ public class GospelRecord extends Record {
 	
 	public void writeRecord(Optional<String> id) throws GospelException {
 		try {
-			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record).get(this.gospelTimeout, TimeUnit.SECONDS);
+			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
 			for (Record recordX : records) {
 			    System.out.println(recordX.toString());
 			}
@@ -59,7 +57,7 @@ public class GospelRecord extends Record {
 		this.gospelPropagation = new Thread(new GospelPropagationHandler(id.orElse(this.record.get(0).getId()),this.gospelConsumer));
 		this.gospelPropagation.start();
 		try {
-			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record, this.gospelPropagation).get(this.gospelTimeout, TimeUnit.SECONDS);
+			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record, this.gospelPropagation).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
 			for (Record recordX : records) {
 			    System.out.println(recordX.toString());
 			}
@@ -72,7 +70,7 @@ public class GospelRecord extends Record {
 	
 	public String readRecord(String id, String recordType) throws GospelException {
 		try {
-			Record record = this.gospelConsumer.getSDK().getRecord(recordType, id).get(this.gospelTimeout, TimeUnit.SECONDS);
+			Record record = this.gospelConsumer.getSDK().getRecord(recordType, id).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
 			JSONObject json = new JSONObject(record.getFields());
 			return json.toString();
 		} catch (Exception  e) {

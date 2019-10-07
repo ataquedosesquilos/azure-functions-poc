@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 public class FileUtils {
 	
 	private static String HOME_FOLDER = "D:\\home\\site\\wwwroot\\";
+	//private static String HOME_FOLDER = "";
 	
 	public static String readFileIntoString(String filename) throws IOException {
 		return new String(Files.readAllBytes(Paths.get(filename)));

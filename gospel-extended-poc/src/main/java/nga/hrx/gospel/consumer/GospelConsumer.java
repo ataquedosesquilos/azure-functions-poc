@@ -1,11 +1,13 @@
 package nga.hrx.gospel.consumer;
 
 
-import java.io.IOException;
 import tech.gospel.sdk.api.consumers.AsyncGospelSdk;
 import tech.gospel.sdk.exception.CertificateParsingException;
 import tech.gospel.sdk.exception.KeyParsingException;
 import nga.hrx.utils.FileUtils;
+
+import java.io.IOException;
+
 import nga.hrx.gospel.consumer.GospelException;
 
 public class GospelConsumer {
@@ -53,8 +55,7 @@ public class GospelConsumer {
 	private void start() throws GospelException   {
 		try {
 			this.sdk = new AsyncGospelSdk(FileUtils.readFileIntoString((this.publicKey)),FileUtils.readFileIntoString((this.privateKey)),this.gospelUrl, this.apiVersion);
-		} catch (CertificateParsingException | KeyParsingException
-			 | IOException e) {
+		} catch (CertificateParsingException | KeyParsingException | IOException e) {
 			throw new GospelException(e);
 		}
 	} 
