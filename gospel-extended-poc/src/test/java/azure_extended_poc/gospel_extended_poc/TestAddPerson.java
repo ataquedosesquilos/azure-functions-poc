@@ -3,6 +3,7 @@ package azure_extended_poc.gospel_extended_poc;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.json.JSONObject;
 
@@ -17,8 +18,10 @@ public class TestAddPerson {
 		GospelRecord recordz  = new GospelRecord();
 		System.out.println("connection established ....");
 		Map<String, Object> fields = new HashMap<String, Object>();
+		String id = "A" +  UUID.randomUUID().toString();
+
 		fields.put("GenderCode", "MALE");
-		fields.put("PersonID", "Ajoaotest");
+		fields.put("PersonID", id);
 		fields.put("FamilyName", "Alves");
 		fields.put("BODID", "_test");
 		fields.put("PreferredSalutationCode", "boss");
@@ -28,7 +31,7 @@ public class TestAddPerson {
 		fields.put("MiddleName", "Da boss");
 		fields.put("EmailAddress", "pitbull@jlow.com");
 		fields.put("BirthDate", "00-00-0000");
-		recordz.addRecord("Ajoaotest", "PERSON", RecordActionTypes.INSERT , fields);
+		recordz.addRecord(id, "PERSON", RecordActionTypes.INSERT , fields);
 		JSONObject json = new JSONObject(fields);
 		System.out.print(json.toString());
 

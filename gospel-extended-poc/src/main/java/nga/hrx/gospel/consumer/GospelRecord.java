@@ -20,7 +20,7 @@ public class GospelRecord extends Record {
 	private Thread gospelPropagation;
 	
 	public GospelRecord(String privateKey, String publicKey, String gospelUrl) throws GospelException {
-		this.gospelConsumer = new GospelConsumer(privateKey, publicKey, gospelUrl);
+		this.gospelConsumer =  new GospelConsumer(privateKey, publicKey, gospelUrl);
 		this.record = new ArrayList<Record>();
 	}
 	
@@ -57,7 +57,7 @@ public class GospelRecord extends Record {
 		this.gospelPropagation = new Thread(new GospelPropagationHandler(id.orElse(this.record.get(0).getId()),this.gospelConsumer));
 		this.gospelPropagation.start();
 		try {
-			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record, this.gospelPropagation).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
+			List<Record> records   =  this.gospelConsumer.getSDK().createRecords(this.record, this.gospelPropagation).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
 			for (Record recordX : records) {
 			    System.out.println(recordX.toString());
 			}

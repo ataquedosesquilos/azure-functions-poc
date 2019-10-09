@@ -4,7 +4,6 @@ import java.util.Optional;
 import java.util.logging.Level;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-
 import com.microsoft.azure.functions.ExecutionContext;
 import com.microsoft.azure.functions.HttpMethod;
 import com.microsoft.azure.functions.HttpRequestMessage;
@@ -31,7 +30,9 @@ public class Gospel_Extended_POC {
 	        String bodyJson = request.getBody().orElse("{}");
 	        context.getLogger().log(Level.INFO, bodyJson);
 	        try {
-				id = Client.createRecord(bodyJson);
+	        	 Client client = new Client();
+				id = client.createRecord(bodyJson);
+				client=null;
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + ExceptionUtils.getStackTrace(e)  + "\"}" ).build(); 
@@ -55,12 +56,11 @@ public class Gospel_Extended_POC {
 	        if(id == null || type == null)
 	        	return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("mandatory fields are missing").build();
 	        try {
-	        	return request.createResponseBuilder(HttpStatus.OK).body(Client.readRecord(id, type)).build();
+	        	 Client client = new Client();
+	        	return request.createResponseBuilder(HttpStatus.OK).body(client.readRecord(id, type)).build();
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " +  ExceptionUtils.getStackTrace(e)   + "\"}" ).build(); 
 			}
-
-	       
 	    }
 }

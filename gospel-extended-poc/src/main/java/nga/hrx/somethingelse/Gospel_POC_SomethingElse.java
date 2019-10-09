@@ -1,9 +1,9 @@
 package nga.hrx.somethingelse;
 
-import java.util.Base64;
 import java.util.Optional;
 import java.util.logging.Level;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.json.JSONObject;
 
 import com.microsoft.azure.functions.ExecutionContext;
@@ -35,7 +35,7 @@ public class Gospel_POC_SomethingElse {
 	 	       return request.createResponseBuilder(HttpStatus.OK).body("bod xml uploaded").build();
 			} catch (Exception e) {
 				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
-	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + e.getLocalizedMessage() + "\"}" ).build(); 
+	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + ExceptionUtils.getStackTrace(e) + "\"}" ).build(); 
 			} 
 	    }
 	 
@@ -54,7 +54,7 @@ public class Gospel_POC_SomethingElse {
 	 	       return request.createResponseBuilder(HttpStatus.OK).body(bod.getFile(id, employeeId, Utils.getEnvironmentConfig("ContainerNameBlobStorage"))).build();
 			} catch (Exception e) {
 				context.getLogger().log(Level.SEVERE, e.getLocalizedMessage(), e);
-	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + e.getLocalizedMessage() + "\"}" ).build(); 
+	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + ExceptionUtils.getStackTrace(e) + "\"}" ).build(); 
 			} 
 	    }
 }

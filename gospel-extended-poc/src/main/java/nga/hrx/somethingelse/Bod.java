@@ -3,11 +3,11 @@ package nga.hrx.somethingelse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import nga.hrx.azure.consumer.BlobStorage;
+import nga.hrx.gospel.consumer.Client;
 import nga.hrx.utils.ApiException;
 import nga.hrx.utils.Encryption;
 import nga.hrx.utils.Utils;
-import nga.hrx.azure.consumer.BlobStorage;
-import nga.hrx.gospel.consumer.Client;
 
 public class Bod {
 	
@@ -41,7 +41,8 @@ public class Bod {
 	}
 	
 	private String getEmployeeKey(String employeeId) throws JSONException, ApiException, SomeElseException {
-		JSONObject json = new JSONObject(Client.readRecord(employeeId, this.RECORD_TYPE));
+		Client client = new Client();
+		JSONObject json = new JSONObject(client.readRecord(employeeId, this.RECORD_TYPE));
 		String employeeKey =  json.getString("EmployeeKey");
 		if(employeeKey == null)
 			throw new SomeElseException("Employee Key can't be null");
