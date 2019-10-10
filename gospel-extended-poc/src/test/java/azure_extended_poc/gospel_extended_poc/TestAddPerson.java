@@ -35,7 +35,7 @@ public class TestAddPerson {
 		JSONObject json = new JSONObject(fields);
 		System.out.print(json.toString());
 
-		recordz.writeRecord(Optional.empty());
+		//recordz.writeRecord(Optional.empty());
 		
 		System.out.println("Record is written" + recordz.toString());
 	

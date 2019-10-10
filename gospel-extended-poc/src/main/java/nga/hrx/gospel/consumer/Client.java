@@ -1,26 +1,43 @@
 package nga.hrx.gospel.consumer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.json.JSONObject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microsoft.azure.functions.ExecutionContext;
+
 
 import nga.hrx.utils.ApiException;
+import tech.gospel.sdk.model.Record;
 
 public class Client {
+	private final int GOSPEL_TIMEOUT = 120;
+	private GospelConsumer gospelConsumer;
 	
-	private GospelRecord recordList;
-	
-	public Client() throws ApiException{
+	public Client(){
 		try {
-			this.recordList = new GospelRecord();
+			this.gospelConsumer = new GospelConsumer();
 		} catch ( Exception e) {
-			throw new ApiException( e);
+			
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
+	public Client(ExecutionContext context){
+		try {
+			this.gospelConsumer = new GospelConsumer();
+		} catch ( Exception e) {
+			context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
+		}
+	}
+	
+/*	@SuppressWarnings("unchecked")
 	public   String  createRecord(String jsonString) throws ApiException {
 		String id = null;
 		try {
@@ -69,6 +86,24 @@ public class Client {
 			this.recordList.writeRecord(null);
 		} catch ( Exception e) {
 			throw new ApiException( e);
+		}
+	}*/
+	
+	public void writeRecord( ArrayList<Record> record) throws ApiException {
+		try {
+			this.gospelConsumer.getSDK().createRecords(record).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
+		} catch ( Exception e) {
+			throw new ApiException( e);
+		}
+	}
+	
+	public   String readRecord(String id, String type) throws ApiException {
+		try {
+			Record record= this.gospelConsumer.getSDK().getRecord(type, id).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
+			JSONObject json = new JSONObject(record.getFields());
+			return json.toString();
+		} catch ( Exception e) {
+			throw new ApiException(e);
 		}
 	}
 	

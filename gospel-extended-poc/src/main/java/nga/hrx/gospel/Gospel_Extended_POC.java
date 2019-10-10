@@ -15,13 +15,15 @@ import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
 import nga.hrx.gospel.consumer.Client;
+import nga.hrx.gospel.consumer.GospelRecord;
 import nga.hrx.utils.ApiException;
 
 public class Gospel_Extended_POC {
 
-	
-	
-	 @FunctionName("writetogospel")
+	private static Client client = new Client();
+	 private GospelRecord gospelRecord = new GospelRecord();
+
+	@FunctionName("writetogospel")
 	    public HttpResponseMessage run(
 	            @HttpTrigger(name = "req", methods = { HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS , route = "records") HttpRequestMessage<Optional<String>> request, 
 	            final ExecutionContext context) {
@@ -30,9 +32,9 @@ public class Gospel_Extended_POC {
 	        String bodyJson = request.getBody().orElse("{}");
 	        context.getLogger().log(Level.INFO, bodyJson);
 	        try {
-	        	 Client client = new Client();
-				id = client.createRecord(bodyJson);
-				client=null;
+				this.gospelRecord.addRecord(bodyJson);
+				client.writeRecord(this.gospelRecord.getRecords());
+				id=this.gospelRecord.getRecords().get(0).getId();
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorMessage\"  : " + ExceptionUtils.getStackTrace(e)  + "\"}" ).build(); 
@@ -56,7 +58,6 @@ public class Gospel_Extended_POC {
 	        if(id == null || type == null)
 	        	return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("mandatory fields are missing").build();
 	        try {
-	        	 Client client = new Client();
 	        	return request.createResponseBuilder(HttpStatus.OK).body(client.readRecord(id, type)).build();
 			} catch (ApiException e) {
 				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);

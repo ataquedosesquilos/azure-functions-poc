@@ -17,8 +17,12 @@ import com.microsoft.azure.functions.annotation.FunctionName;
 import com.microsoft.azure.functions.annotation.HttpTrigger;
 
 import nga.hrx.gospel.consumer.Client;
+import nga.hrx.gospel.consumer.GospelRecord;
 
 public class Gospel_POC_SomethingElseList {
+	
+	 private static Client client = new Client();
+	 private GospelRecord gospelRecord = new GospelRecord();
 	
 	 @FunctionName("writetogospelx")
 	    public HttpResponseMessage run(
@@ -29,14 +33,14 @@ public class Gospel_POC_SomethingElseList {
 	        String bodyJson = request.getBody().orElse("{}");
 	        context.getLogger().log(Level.INFO, bodyJson);
 	        try {
-	        	 Client client = new Client();
+	        	
 	        	 JSONObject req = new JSONObject(bodyJson);
 	        	 JSONArray recs = req.getJSONArray("RecordList");
 	        	 for (int i = 0; i < recs.length(); ++i) {
 	        		    JSONObject rec = recs.getJSONObject(i);
-	        		    client.addRecord(rec.toString());
+	        		    this.gospelRecord.addRecord(rec.toString());
 	        		}
-	        	 client.writeRecord();
+	        	 client.writeRecord(this.gospelRecord.getRecords());
 	        	 id = "multipleIds";
 	        	 return request.createResponseBuilder(HttpStatus.OK).body("{name:" + id +" }").build();
 			} catch (Exception e) {
