@@ -91,7 +91,7 @@
          <dependency>
                 <groupId>gospel</groupId>
                 <artifactId>gospel-sdk</artifactId>
-                <version>1.45</version>
+                <version>1.45.128</version>
             </dependency>
 <dependency>
     <groupId>org.bouncycastle</groupId>
@@ -248,6 +248,10 @@
                         <property>
                             <name>ContainerNameBlobStorage</name>
                             <value>bods</value>
+                        </property>
+                         <property>
+                            <name>ContainerNameBlobStoragePayslips</name>
+                            <value>payslips</value>
                         </property>
                          <property>
                             <name>GospelTimeout</name>

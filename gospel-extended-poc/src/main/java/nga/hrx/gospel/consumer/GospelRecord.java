@@ -2,29 +2,18 @@ package nga.hrx.gospel.consumer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-
-import org.json.JSONObject;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import nga.hrx.utils.ApiException;
-import tech.gospel.sdk.api.consumers.AsyncGospelSdk;
 import tech.gospel.sdk.model.Record;
 import tech.gospel.sdk.model.RecordType;
 
 public class GospelRecord extends Record {
 	
-	private final int GOSPEL_TIMEOUT = 120;
 	
 	//private GospelConsumer gospelConsumer;
 	private ArrayList<Record> record;
-	private Thread gospelPropagation;
 	
 	public GospelRecord(String privateKey, String publicKey, String gospelUrl) throws GospelException {
 	//	this.gospelConsumer =  new GospelConsumer(privateKey, publicKey, gospelUrl);
@@ -68,46 +57,5 @@ public class GospelRecord extends Record {
 	public  ArrayList<Record> getRecords(){
 		return this.record;
 	}
-	/*public void writeRecord(Optional<String> id) throws GospelException {
-		try {
-			List<Record> records   = this.gospelConsumer.getSDK().createRecords(this.record).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
-			for (Record recordX : records) {
-			    System.out.println(recordX.toString());
-			}
-			
-		} catch (InterruptedException | ExecutionException | TimeoutException  e) {
-			throw new GospelException(e);
-		}
-	}
-	
-	public void writeRecordWithCallback(Optional<String> id) throws GospelException {
-		this.gospelPropagation = new Thread(new GospelPropagationHandler(id.orElse(this.record.get(0).getId()),this.gospelConsumer));
-		this.gospelPropagation.start();
-		try {
-			List<Record> records   =  this.gospelConsumer.getSDK().createRecords(this.record, this.gospelPropagation).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
-			for (Record recordX : records) {
-			    System.out.println(recordX.toString());
-			}
-			
-		} catch (InterruptedException | ExecutionException | TimeoutException  e) {
-			throw new GospelException(e);
-		}
-	}
-	
-	
-	public String readRecord(String id, String recordType) throws GospelException {
-		try {
-			Record record = this.gospelConsumer.getSDK().getRecord(recordType, id).get(GOSPEL_TIMEOUT, TimeUnit.SECONDS);
-			JSONObject json = new JSONObject(record.getFields());
-			return json.toString();
-		} catch (Exception  e) {
-			throw new GospelException(e);
-		}
-	}
-	
-	public AsyncGospelSdk getSDK() {
-		return this.gospelConsumer.getSDK();
-		
-	} */
 	
 }

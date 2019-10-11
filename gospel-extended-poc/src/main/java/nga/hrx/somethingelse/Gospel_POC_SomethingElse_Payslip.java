@@ -19,22 +19,21 @@ import com.microsoft.azure.functions.annotation.HttpTrigger;
 import nga.hrx.utils.ApiException;
 import nga.hrx.utils.Utils;
 import nga.hrx.gospel.consumer.Client;
-import nga.hrx.somethingelse.Bod;
 
-public class Gospel_POC_SomethingElse {
+public class Gospel_POC_SomethingElse_Payslip {
 
 	private static Client client = new Client();
-	private static Bod bod = new Bod(client);
+	private static Payslip payslip = new Payslip(client);
 	
-	 @FunctionName("somethingelsewrite")
+	 @FunctionName("somethingelsepayslipwrite")
 	    public HttpResponseMessage run(
-	            @HttpTrigger(name = "req", methods = { HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS, route = "somethingelse" ) HttpRequestMessage<Optional<String>> request, 
+	            @HttpTrigger(name = "req", methods = { HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS, route = "somethingelse/payslip" ) HttpRequestMessage<Optional<String>> request, 
 	            final ExecutionContext context) {
 
 	        try {
-	 	        JSONObject json = new JSONObject( request.getBody().orElseThrow(() -> new ApiException("bod xml can't be null " )) );
-	 	        bod.storeFile(json.getString("EmployeeId"), json.getString("Bod") , json.getString("Filename"), Utils.getEnvironmentConfig("ContainerNameBlobStorage"));
-	 	       return request.createResponseBuilder(HttpStatus.OK).body("bod xml uploaded").build();
+	 	        JSONObject json = new JSONObject( request.getBody().orElseThrow(() -> new ApiException("payslip can't be null " )) );
+	 	        payslip.storePayslip( json.getString("Payslip") , json.getString("Filename"), Utils.getEnvironmentConfig("ContainerNameBlobStoragePayslips"), json.getString("EmployeeId"));
+	 	       return request.createResponseBuilder(HttpStatus.OK).body("Payslip uploaded").build();
 			} catch (Exception e) {
 				context.getLogger().log(Level.SEVERE,ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + ExceptionUtils.getStackTrace(e) + "\"}" ).build(); 
@@ -42,16 +41,16 @@ public class Gospel_POC_SomethingElse {
 	    }
 	 
 	 
-	 @FunctionName("somethingelseget")
+	 @FunctionName("somethingelsepayslipget")
 	    public HttpResponseMessage get(
-	            @HttpTrigger(name = "req", methods = { HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS, route = "somethingelse/{id}" ) HttpRequestMessage<Optional<String>> request, @BindingName("id") String id, 
+	            @HttpTrigger(name = "req", methods = { HttpMethod.GET}, authLevel = AuthorizationLevel.ANONYMOUS, route = "somethingelse/payslip/{id}" ) HttpRequestMessage<Optional<String>> request, @BindingName("id") String id, 
 	            final ExecutionContext context) {
 
 	       String employeeId = request.getQueryParameters().get("employeeId");
 	        if(id == null || employeeId == null)
 	        	return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("mandatory fields are missing").build();
 	        try {
-	 	       return request.createResponseBuilder(HttpStatus.OK).body(bod.getFile(id, employeeId, Utils.getEnvironmentConfig("ContainerNameBlobStorage"))).build();
+	 	       return request.createResponseBuilder(HttpStatus.OK).body(payslip.getPayslip(id, employeeId, Utils.getEnvironmentConfig("ContainerNameBlobStoragePayslips"))).build();
 			} catch (Exception e) {
 				context.getLogger().log(Level.SEVERE, ExceptionUtils.getStackTrace(e), e);
 	            return request.createResponseBuilder(  HttpStatus.INTERNAL_SERVER_ERROR).body("{\"ErrorCode\"  : \"500\", \"Error Message\" : \"" + ExceptionUtils.getStackTrace(e) + "\"}" ).build(); 
