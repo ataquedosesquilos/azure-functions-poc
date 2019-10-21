@@ -3,11 +3,5 @@
   "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
         "version": "[1.*, 2.0.0)"
-    },
-     "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 400,
-        "maxConcurrentRequests": 200,
-        "dynamicThrottlesEnabled": true
     }
 }

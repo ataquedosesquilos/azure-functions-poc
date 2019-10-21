@@ -66,8 +66,7 @@
                 <groupId>com.microsoft.azure.functions</groupId>
                 <artifactId>azure-functions-java-library</artifactId>
                 <version>${azure.functions.java.library.version}</version>
-            </dependency>
-           
+            </dependency>              
         </dependencies>
     </dependencyManagement>
 
@@ -76,7 +75,23 @@
             <groupId>com.microsoft.azure.functions</groupId>
             <artifactId>azure-functions-java-library</artifactId>
         </dependency>
-
+		<dependency>
+        		<groupId>com.microsoft.azure</groupId>
+        		<artifactId>applicationinsights-web-auto</artifactId>
+        		<version>2.5.0</version>
+      		</dependency>
+      		<dependency>
+    			<groupId>com.microsoft.azure</groupId>
+    			<artifactId>applicationinsights-core</artifactId>
+    			<version>2.5.0</version>
+			</dependency> 
+      
+      
+      <dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>applicationinsights-agent</artifactId>
+    <version>2.5.0</version>
+</dependency>
         <!-- Test -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -265,6 +280,10 @@
                             <name>AzureWebJobsStorageBods</name>
                             <value>DefaultEndpointsProtocol=https;AccountName=gospelextendedpocbod;AccountKey=G4CNGVlcDO581olikaGOlWIkdWotAMjMbNuM8m+nIAu+zxSiVUDfJFRCcfIw3PMQQADyWV2FeG09qHBog2PnNw==;EndpointSuffix=core.windows.net</value>
                         </property>
+                         <property>
+                            <name>JAVA_OPTS</name>
+                            <value>-Dapplicationinsights.configurationDirectory="D:\home\site\wwwroot\lib\ApplicationInsights.xml" -javaagent:"D:\home\site\wwwroot\lib\applicationinsights-agent-2.5.0.jar"</value>
+                        </property>
                         <!--
                          <property>
                             <name>GospelURL</name>
@@ -307,6 +326,26 @@
                                         <include>local.settings.json</include>
                                         <include>joao.key</include>
                                         <include>joao.pem</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                     <execution>
+                        <id>copy-resources-insightapp</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${stagingDirectory}/lib</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <includes>
+                                        <include>AI-Agent.xml</include>
+                                        <include>ApplicationInsights.xml</include>
                                     </includes>
                                 </resource>
                             </resources>
