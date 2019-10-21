@@ -29,7 +29,7 @@ public class AppInsight {
 	}
 	
 	public void trackDependency(String dependencyName, String commandName, Long duration, boolean success) {
-		this.myClient.trackDependency(dependencyName, commandName, new Duration(duration), success);
+		this.myClient.trackDependency(dependencyName, commandName, new Duration(0L,0,0,0,duration.intValue()), success);
 	}
 
 }

@@ -19,7 +19,10 @@ public class Client {
 	
 	public Client(){
 		try {
+			long lStartTime = System.nanoTime();
 			this.gospelConsumer = new GospelConsumer();
+			long lEndTime = System.nanoTime();
+			Client.appInsight.trackMetric("Instantiate SDK",( lEndTime - lStartTime)/1000);
 		} catch ( Exception e) {
 			
 		}
