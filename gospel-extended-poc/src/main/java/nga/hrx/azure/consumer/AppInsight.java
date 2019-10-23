@@ -29,7 +29,14 @@ public class AppInsight {
 	}
 	
 	public void trackDependency(String dependencyName, String commandName, Long duration, boolean success) {
-		this.myClient.trackDependency(dependencyName, commandName, new Duration(0L,0,0,0,duration.intValue()), success);
+		Long minutes =  (duration / 1000) / 60;
+		Long seconds =  (duration / 1000) % 60;
+		Long durationMilliseconds = duration % 1000;
+		this.myClient.trackDependency(dependencyName, commandName, new Duration(0L,0, minutes.intValue(), seconds.intValue() , durationMilliseconds.intValue()), success);
+	}
+	
+	public void trackException(Exception exception) {
+		this.myClient.trackException(exception);
 	}
 
 }

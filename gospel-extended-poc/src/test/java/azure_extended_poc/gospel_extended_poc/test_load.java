@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import nga.hrx.gospel.consumer.GospelException;
+import nga.hrx.utils.ApiException;
 
 public class test_load {
 
@@ -17,7 +18,7 @@ public class test_load {
 			        public void run() {
 			        	try {
 							TestAddPerson.main(null);
-						} catch (GospelException e) {
+						} catch (GospelException | ApiException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}

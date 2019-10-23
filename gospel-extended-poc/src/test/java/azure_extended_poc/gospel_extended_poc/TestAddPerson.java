@@ -2,18 +2,19 @@ package azure_extended_poc.gospel_extended_poc;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.json.JSONObject;
 
+import nga.hrx.gospel.consumer.Client;
 import nga.hrx.gospel.consumer.GospelException;
 import nga.hrx.gospel.consumer.GospelRecord;
 import nga.hrx.gospel.consumer.RecordActionTypes;
+import nga.hrx.utils.ApiException;
 
 public class TestAddPerson {
 
-	public static void main(String[] args) throws GospelException {
+	public static void main(String[] args) throws GospelException, ApiException {
 		System.out.println("executing ....");
 		GospelRecord recordz  = new GospelRecord();
 		System.out.println("connection established ....");
@@ -34,8 +35,9 @@ public class TestAddPerson {
 		recordz.addRecord(id, "PERSON", RecordActionTypes.INSERT , fields);
 		JSONObject json = new JSONObject(fields);
 		System.out.print(json.toString());
-
-		//recordz.writeRecord(Optional.empty());
+		Client client = new Client();
+		System.out.println("instantiated gospel consumer/client");
+		client.writeRecord(recordz.getRecords());
 		
 		System.out.println("Record is written" + recordz.toString());
 	

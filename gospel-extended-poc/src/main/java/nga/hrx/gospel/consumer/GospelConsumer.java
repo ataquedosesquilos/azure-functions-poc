@@ -4,10 +4,16 @@ package nga.hrx.gospel.consumer;
 import tech.gospel.sdk.api.consumers.AsyncGospelSdk;
 import tech.gospel.sdk.exception.CertificateParsingException;
 import tech.gospel.sdk.exception.KeyParsingException;
+import tech.gospel.sdk.model.RecordDefinition;
 import nga.hrx.utils.FileUtils;
 import nga.hrx.utils.Utils;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import nga.hrx.gospel.consumer.GospelException;
 
@@ -19,6 +25,8 @@ public class GospelConsumer {
 	private String gospelUrl = Utils.getEnvironmentConfig("GospelURL");
 	private  String apiVersion = "v1.1";
 	private  AsyncGospelSdk sdk; 
+	private Map<String, RecordDefinition> definitions = new HashMap<String, RecordDefinition>();
+	private final int GOSPEL_TIMEOUT = 120;
 	
 	
 	public GospelConsumer() throws GospelException {
@@ -51,7 +59,9 @@ public class GospelConsumer {
 	private void start() throws GospelException   {
 		try {
 			this.sdk = new AsyncGospelSdk(FileUtils.readFileIntoString((this.publicKey)),FileUtils.readFileIntoString((this.privateKey)),this.gospelUrl, this.apiVersion);
-		} catch (CertificateParsingException | KeyParsingException | IOException e) {
+			this.startDefinitions();
+		} catch (CertificateParsingException | KeyParsingException | IOException | InterruptedException | ExecutionException | TimeoutException e) {
+			e.printStackTrace();
 			throw new GospelException(e);
 		}
 	} 
@@ -59,6 +69,17 @@ public class GospelConsumer {
 	public AsyncGospelSdk getSDK() {
 		return this.sdk;
 		
+	}
+	
+	public Map<String, RecordDefinition> getDefinitions(){
+		return this.definitions;
+	}
+	
+	private void startDefinitions() throws InterruptedException, ExecutionException, TimeoutException {
+		this.definitions.put("PERSON", this.sdk.getRecordDefinition("PERSON").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
+		this.definitions.put("BODSTATUS", this.sdk.getRecordDefinition("BODSTATUS").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
+		this.definitions.put("EMPLOYEE", this.sdk.getRecordDefinition("EMPLOYEE").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
+		this.definitions.put("PAYSLIP", this.sdk.getRecordDefinition("PAYSLIP").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
 	}
 		
 }
