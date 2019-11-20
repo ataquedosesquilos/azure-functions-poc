@@ -14,4 +14,8 @@ public class SomeElseException extends Exception {
 	public SomeElseException(String errorMessage) {
         super(errorMessage);
     }
+	
+	public SomeElseException(String errorMessage, Exception exception) {
+        super(errorMessage,exception);
+    }
 }

@@ -19,7 +19,11 @@ import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import nga.hrx.azure.consumer.AppInsight;
+
 public class Encryption {
+	
+	
 
 	public static String getRandom() { 
 
@@ -137,8 +141,8 @@ public static byte [] decryptData(String key, byte [] encryptedData)
         InvalidKeySpecException { 
 
  
-
- 
+	AppInsight appInsight = new AppInsight();
+	long lStartTime = System.currentTimeMillis();
 
     //Wrap the data into a byte buffer to ease the reading process 
 
@@ -192,10 +196,12 @@ public static byte [] decryptData(String key, byte [] encryptedData)
 
     //Encrypt the data 
 
-    return cipher.doFinal(cipherBytes); 
+    byte[] temp = cipher.doFinal(cipherBytes); 
 
  
-
+    long lEndTime = System.currentTimeMillis();
+    appInsight.trackMetric("DecryptData",lEndTime - lStartTime);
+    return temp;
 } 
 	
 	

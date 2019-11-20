@@ -16,7 +16,9 @@ public class GospelPropagationHandler  implements  Runnable {
 	}
 
 	@Override
-	public void run() {}
+	public void run() {
+		System.out.println("It executed");
+	}
 	
 	
 

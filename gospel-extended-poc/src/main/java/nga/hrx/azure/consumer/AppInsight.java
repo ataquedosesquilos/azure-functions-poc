@@ -38,5 +38,12 @@ public class AppInsight {
 	public void trackException(Exception exception) {
 		this.myClient.trackException(exception);
 	}
+	
+	public void trackException(String exception) {
+		this.myClient.trackException(new Exception(exception));
+	}
 
+	public void flush() {
+		this.myClient.flush();
+	}
 }

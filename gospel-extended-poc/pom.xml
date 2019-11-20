@@ -5,7 +5,7 @@
 
     <groupId>azure-extended-poc</groupId>
     <artifactId>gospel-extended-poc</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.27-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Azure Java Functions</name>
@@ -106,7 +106,7 @@
          <dependency>
                 <groupId>gospel</groupId>
                 <artifactId>gospel-sdk</artifactId>
-                <version>1.45.128</version>
+                <version>1.50.139</version>
             </dependency>
 <dependency>
     <groupId>org.bouncycastle</groupId>
@@ -131,12 +131,12 @@
          <dependency>
                 <groupId>gospel</groupId>
                 <artifactId>gospel-commons-sources</artifactId>
-                <version>3.0.63</version>
+                <version>5.0.66</version>
             </dependency>
          <dependency>
                 <groupId>gospel</groupId>
                 <artifactId>gospel-cryptosign</artifactId>
-                <version>3.0.32</version>
+                <version>5.0.37</version>
             </dependency>
             <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
@@ -278,22 +278,22 @@
                         </property>
                          <property>
                             <name>AzureWebJobsStorageBods</name>
-                            <value>DefaultEndpointsProtocol=https;AccountName=gospelextendedpocbod;AccountKey=G4CNGVlcDO581olikaGOlWIkdWotAMjMbNuM8m+nIAu+zxSiVUDfJFRCcfIw3PMQQADyWV2FeG09qHBog2PnNw==;EndpointSuffix=core.windows.net</value>
+                            <value>DefaultEndpointsProtocol=https;AccountName=gospelextendedpocstorage;AccountKey=BEUwxw7ZNa57XXsywAI1QPJvUjReqzs2Xyem/x4jmDgEWzpeqRMLr01hpn+l1qsgjQm1fmc//NDZl+7+5JfXAg==;EndpointSuffix=core.windows.net</value>
                         </property>
                          <property>
                             <name>JAVA_OPTS</name>
                             <value>-Dapplicationinsights.configurationDirectory="D:\home\site\wwwroot\lib\ApplicationInsights.xml" -javaagent:"D:\home\site\wwwroot\lib\applicationinsights-agent-2.5.0.jar"</value>
                         </property>
-                        <!--
+                        
                          <property>
                             <name>GospelURL</name>
                             <value>https://nfr4.westeurope.cloudapp.azure.com</value>
                         </property>
-                        -->
+                        <!--
                            <property>
                             <name>GospelURL</name>
                             <value>http://10.68.0.6</value>
-                        </property>
+                        </property>-->
                     </appSettings>
                 </configuration>
                 <executions>

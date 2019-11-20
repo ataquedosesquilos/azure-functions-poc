@@ -3,6 +3,8 @@ package nga.hrx.somethingelse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import nga.hrx.azure.consumer.AppInsight;
 import nga.hrx.azure.consumer.BlobStorage;
 import nga.hrx.gospel.consumer.Client;
 import nga.hrx.utils.ApiException;
@@ -11,8 +13,10 @@ import nga.hrx.utils.Utils;
 
 public class Bod {
 	
-	 private final String RECORD_TYPE="EMPLOYEE";
+	 private final String RECORD_TYPE="EMPLOYEE2";
 	 private Client client;
+	 private static AppInsight appInsight = new AppInsight();
+
 	 
 	 public Bod(Client client) {
 		 this.client=client;
@@ -46,11 +50,12 @@ public class Bod {
 	}
 	
 	private String getEmployeeKey(String employeeId) throws JSONException, ApiException, SomeElseException {
-		JSONObject json = new JSONObject(this.client.readRecord(employeeId, this.RECORD_TYPE));
-		String employeeKey =  json.getString("EmployeeKey");
+		long lStartTime = System.currentTimeMillis();
+		String employeeKey = this.client.getFieldFromRecord(employeeId, this.RECORD_TYPE, "EmployeeKey");
 		if(employeeKey == null)
 			throw new SomeElseException("Employee Key can't be null");
-		
+		long lEndTime = System.currentTimeMillis();
+		Bod.appInsight.trackMetric("GetEmployeeKey", lEndTime - lStartTime);
 		return employeeKey;
 	}
 

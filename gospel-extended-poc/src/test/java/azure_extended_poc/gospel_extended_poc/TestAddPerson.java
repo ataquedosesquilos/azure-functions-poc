@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import nga.hrx.gospel.consumer.Client;
 import nga.hrx.gospel.consumer.GospelException;
+import nga.hrx.gospel.consumer.GospelPropagationHandler;
 import nga.hrx.gospel.consumer.GospelRecord;
 import nga.hrx.gospel.consumer.RecordActionTypes;
 import nga.hrx.utils.ApiException;
@@ -37,9 +38,13 @@ public class TestAddPerson {
 		System.out.print(json.toString());
 		Client client = new Client();
 		System.out.println("instantiated gospel consumer/client");
+		GospelPropagationHandler runnalbe = new GospelPropagationHandler(id);
 		client.writeRecord(recordz.getRecords());
 		
 		System.out.println("Record is written" + recordz.toString());
+		while(true) {
+			
+		}
 	
 		
 	}

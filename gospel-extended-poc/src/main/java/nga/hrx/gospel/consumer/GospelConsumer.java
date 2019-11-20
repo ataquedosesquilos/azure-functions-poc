@@ -15,6 +15,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import nga.hrx.azure.consumer.AppInsight;
 import nga.hrx.gospel.consumer.GospelException;
 
 public class GospelConsumer {
@@ -27,7 +28,7 @@ public class GospelConsumer {
 	private  AsyncGospelSdk sdk; 
 	private Map<String, RecordDefinition> definitions = new HashMap<String, RecordDefinition>();
 	private final int GOSPEL_TIMEOUT = 120;
-	
+	private static AppInsight appInsight = new AppInsight();
 	
 	public GospelConsumer() throws GospelException {
 		try {
@@ -35,7 +36,7 @@ public class GospelConsumer {
 			this.publicKey = FileUtils.getFilePath() + this.publicKey;
 			this.start();
 		}catch(Exception e){
-			throw new GospelException(e);
+			GospelConsumer.appInsight.trackException(e);
 		}
 	}
 	
@@ -43,6 +44,7 @@ public class GospelConsumer {
 		try {
 			this.start();
 		}catch(Exception e){
+			GospelConsumer.appInsight.trackException(e);
 			throw new GospelException(e);
 		}
 		
@@ -52,6 +54,7 @@ public class GospelConsumer {
 		try {
 			this.start();
 		}catch(Exception e){
+			GospelConsumer.appInsight.trackException(e);
 			throw new GospelException(e);
 		}
 	}
@@ -61,12 +64,20 @@ public class GospelConsumer {
 			this.sdk = new AsyncGospelSdk(FileUtils.readFileIntoString((this.publicKey)),FileUtils.readFileIntoString((this.privateKey)),this.gospelUrl, this.apiVersion);
 			this.startDefinitions();
 		} catch (CertificateParsingException | KeyParsingException | IOException | InterruptedException | ExecutionException | TimeoutException e) {
-			e.printStackTrace();
+			GospelConsumer.appInsight.trackException(e);
 			throw new GospelException(e);
 		}
 	} 
 	
 	public AsyncGospelSdk getSDK() {
+		if(this.sdk == null) {
+			try {
+				this.start();
+			} catch (GospelException e) {
+				GospelConsumer.appInsight.trackException(e);
+			}
+		}
+		
 		return this.sdk;
 		
 	}
@@ -79,6 +90,7 @@ public class GospelConsumer {
 		this.definitions.put("PERSON", this.sdk.getRecordDefinition("PERSON").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
 		this.definitions.put("BODSTATUS", this.sdk.getRecordDefinition("BODSTATUS").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
 		this.definitions.put("EMPLOYEE", this.sdk.getRecordDefinition("EMPLOYEE").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
+		this.definitions.put("EMPLOYEE2", this.sdk.getRecordDefinition("EMPLOYEE2").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
 		this.definitions.put("PAYSLIP", this.sdk.getRecordDefinition("PAYSLIP").get(GOSPEL_TIMEOUT, TimeUnit.SECONDS));
 	}
 		

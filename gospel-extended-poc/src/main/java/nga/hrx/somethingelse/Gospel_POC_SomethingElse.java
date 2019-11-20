@@ -24,7 +24,7 @@ import nga.hrx.somethingelse.Bod;
 public class Gospel_POC_SomethingElse {
 
 	private static Client client = new Client();
-	private static Bod bod = new Bod(client);
+	private  Bod bod = new Bod(client);
 	
 	 @FunctionName("somethingelsewrite")
 	    public HttpResponseMessage run(
